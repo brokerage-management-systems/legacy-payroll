@@ -1,0 +1,37 @@
+
+<form method="get" action="">
+    <fieldset>
+        <legend>Trade Totals/Blotter:</legend><table>
+            <tr><td><select name="viewType">
+                        <option value="null">*Choose View</option>
+                        <option value="blotter">Trade Blotter</option>
+                        <option value="totals">Trade Totals</option>
+                    </select></td>
+                <td><select name="groupBy">
+                        <option value="null">*Choose Type</option>
+                        <option value="acct">Accounts</option>
+                        <option value="all">All Data</option>
+                        <option value="rep">Reps</option>
+                    </select></td>
+                <td><select name="dateType">
+                		<option value="null">*Choose Date Type</option>
+                		<option value="settlement">Settlement Date</option>
+                		<option value="trade">Trade Date</option>
+                	</select></td>                		
+                <td><select name="searchMonthSelect">
+                        <?php HtmlComponents::dateDropDown("tradedata"); ?>
+                    </select></td>
+            <td>OR:</td></tr><tr>
+                <td>Rep#: <input type="text" size="3" name="repNum" /></td>
+                <td>Acct#: <input type="text" size="10" name="acctNum" /></td>
+                <?php
+                $eleNames[0] = "searchDateStart";
+                $eleNames[1] = "searchDateEnd";
+                // Moved this functionality to footer.php
+                //HtmlComponents::datePicker($eleNames); 
+                ?>
+                <td>Start Date:<input id="searchDateStart" name="searchDateStart" type="text" size="10" /></td>
+                <td>End Date:<input id="searchDateEnd" name="searchDateEnd" type="text" size="10" /></td>
+                <td><input type="submit" name="submit" value="submit" /></td></tr></table>
+    </fieldset>
+</form>
